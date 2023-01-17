@@ -3,6 +3,9 @@
 #include "bimap.h"
 #include "test-classes.h"
 
+static_assert(sizeof(bimap<size_t, size_t>::left_iterator) <= sizeof(void*),
+              "iterator size must be less or equal size of 1 pointer");
+
 TEST(bimap, leak_check) {
   bimap<unsigned long, unsigned long> b;
 
